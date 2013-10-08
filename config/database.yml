@@ -1,0 +1,21 @@
+development:
+  adapter: mysql
+  database: ultidate_dev
+  host: localhost
+  username: user
+  password: pass
+
+test:
+  adapter: mysql
+  database: ultidate_test
+  host: localhost
+  username: user
+  password: pass
+
+production:
+  adapter: mysql
+  database: ultidate
+  host: localhost
+  username: user
+  password: pass
+  socket: /var/run/mysqld/mysqld.sock

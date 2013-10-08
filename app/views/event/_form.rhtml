@@ -1,0 +1,25 @@
+<p>
+<label for="event_date" class="fieldlabel">Wann</label>
+<%= date_select "event", "date", :use_month_numbers => true, :order => [:day, :month, :year] %>
+</p>
+
+<p>
+<label for="event_duration" class="fieldlabel">Dauer</label>
+<%= text_field "event", "duration", "size" => 2%> Tag(e)
+</p>
+<%= error_message_on "event", "duration", "Dauer " %>
+
+<p>
+<label for="event_title" class="fieldlabel">Was</label>
+<%= text_field "event", "title" %>
+</p>
+<%= error_message_on "event", "title", "Name " %>
+
+<p><%= check_box "event", "is_public" %> Termin als Turnier auf
+<a href="http://www.arsludendi.de">www.arsludendi.de</a> anzeigen?</p>
+
+<p><label for="event_description" class="fieldlabel">Beschreibung/Hinweise</label></p>
+<div class="description">
+<%= render :partial => "description_help" %>
+</div>
+<%= text_area "event", "description", "cols" => 60, "rows" => 10 %>

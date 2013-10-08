@@ -1,0 +1,19 @@
+<% @page_title = "Termine am #{format_date @date}" %>
+
+<% if @events.empty? %>
+  <p>An diesem Tag finden bisher noch keine Termine statt.</p>
+<% else %>
+<p>Folgende Termine finden am <%= format_date @date %> statt:</p>
+
+<ul>
+    <% for event in @events %>
+    <li><%= link_to h(event.title), :action => "show", :id => event %>
+    </li>
+    <% end %>
+</ul>
+
+<p>
+<% end %>
+
+<%= link_to "Einen neuen Termin", { :action => "new" }.update(date_hash(@date)) %> an diesem Tag erstellen
+</p>

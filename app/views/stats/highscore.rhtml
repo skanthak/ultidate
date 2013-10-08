@@ -1,0 +1,15 @@
+<% @page_title = "Turnier-Highscore" %>
+
+<p><%= link_to "Zur Terminübersicht", :controller => 'event', :action => 'list' %></p>
+
+<p>Wer hat auf den meisten Turnieren (alle Termine, die auf http://www.arsludendi.de gelistet sind) gespielt?</p>
+
+<table>
+<tr><th>E-Mail Adresse</th><th>Anzahl Turniere</th></tr>
+<% for record in @highscore %>
+<tr>
+  <td><%=h record['email'] %></td>
+  <td><%=h record['event_count'] %></td>
+</tr>
+<% end %>
+</table>

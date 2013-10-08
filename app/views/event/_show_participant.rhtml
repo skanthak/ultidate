@@ -1,0 +1,10 @@
+<%=h person.name %>
+ <% unless person.email.empty? %>(<%=h person.email %>)<% end %>
+ <%= link_to_remote "Bearbeiten", { :update => htmlid,
+    :url => {:action => "load_participant", :id => person.id, :template => "edit" } },   :class => "commandLink"   %>
+ <%= link_to "Entfernen", {:action => 'destroy_participant', :id => person.id },
+  {:confirm => "Wirklich entfernen?", :class => "commandLink" } %>
+<% unless person.comments.empty? %>
+<br />
+<span class="comment"><%=h person.comments %></span>
+<% end %>

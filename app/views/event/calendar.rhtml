@@ -1,0 +1,47 @@
+<% @page_title = "Turnierteilnahmen" %>
+
+		
+
+<p>Eine Übersicht aller aktuellen Turniertermine findet ihr im <a
+href="http://www.frisbeesportverband.de/events">Terminkalender</a>
+des DFV.</p>
+
+		
+<h2>Anstehende Turniere</h2>
+
+<p>Wir sind für folgende Turniere gemeldet bzw. werden mit
+Einzelspielern vertreten sein.</p>
+
+
+<table cellpadding="3" cellspacing="3" class="table1" width="479" >
+
+<tr ><td  class="td_strong" width="209" height="21"><b>Turnier</b></td><td  class="td_strong" width="106" height="21"><b>Datum</b></td></tr>
+
+<% for event in @events %>
+<tr>
+<td class="td1"><%= link_to(h(event.title), {:action => 'show', :id => event.id}, {"target" => "_top" }) %></td>
+<td class="td1"><%= format_date_short(event.date) %></td>
+</tr>
+<% end %>
+
+</table>
+
+
+<h2>Vergangene Turniere</h2>
+
+<p>Auf folgenden Turnieren waren wir vertreten.</p>
+
+
+<table cellpadding="3" cellspacing="3" class="table1" width="479" >
+
+<tr ><td  class="td_strong" width="209" height="21"><b>Turnier</b></td><td  class="td_strong" width="106" height="21"><b>Datum</b></td></tr>
+
+<% for event in @past_events %>
+<tr>
+<td class="td1"><%= link_to(h(event.title), {:action => 'show', :id => event.id}, {"target" => "_top" }) %></td>
+<td class="td1"><%= format_date_short(event.date) %></td>
+</tr>
+<% end %>
+
+</table>
+

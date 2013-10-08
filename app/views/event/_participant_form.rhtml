@@ -1,0 +1,7 @@
+    <p>Name: <%= text_field "participant", "name" %></p>
+    <%= error_message_on "participant", "name", "Name " %>
+    <p>E-Mail-Adresse: <%= text_field "participant", "email" %></p>
+    <%= error_message_on "participant", "email", "E-Mail-Adresse " %>
+    <p class="comment">Wenn Du Deine E-Mail-Adresse angibst, wirst Du automatisch in einen Verteiler für diesen Termin aufgenommen.</p>
+    <p>Kommentar (optional):</p>
+    <%= text_area "participant", "comments", "cols" => 40, "rows" => 5 %>

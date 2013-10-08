@@ -1,0 +1,8 @@
+<%= form_remote_tag :update => htmlid, :url => { :action => "update_participant" } %>
+<%= hidden_field_tag "id", person.id %>
+<%= render_partial "participant_form" %>
+<br />
+<%= submit_tag "Speichern" %>
+<%= link_to_remote "Abbrechen", { :update => htmlid,
+    :url => { :action => "load_participant", :id => person.id, :template => "show" } }, :class => "commandLink" %>
+<%= end_form_tag %>

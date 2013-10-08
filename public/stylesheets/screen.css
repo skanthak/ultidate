@@ -1,0 +1,87 @@
+/*Georgia,Geneva,Arial,Helvetica,sans-serif;*/
+
+h1,h2,h3,h4,ul,ol,li,div,p,b,td,th,address,blockquote,nobr,i, a {
+ font-family:Verdana,Arial,Helvetica,sans-serif; }
+
+h1 { font-size:16px; margin-bottom:6px; color:#000000; border-bottom:solid 1px;}
+/* color:#003366;  color:#008080; }*/
+
+h2 { font-size:14px; margin-bottom:18px; }
+
+h3 { font-size:13px; }
+
+h4 { font-size:13px; color:#023467; }
+
+p,ul,ol,li,div,td,th,address,blockquote,a { font-size:13px; }
+
+li { margin-top:3px; }
+
+pre { font-family:Courier New,Courier,monospace; font-size:13px; color:#0000C0; }
+
+code,kbd,tt { font-family:Courier New,Courier,monospace; color:#0000C0; }
+
+var { font-style:normal; color:#0000C0; }
+
+blockquote,cite { font-style:italic; }
+
+img { border: none; }
+
+pre.normal { color:#000000; }
+
+a {
+	color:#003366;
+	text-decoration:none;
+	font-weight : bold;
+}
+a:hover {text-decoration:none;}
+a:active { color:#7E0001; text-decoration:none; }
+
+a.nav{ color:#000000; text-decoration:none;font-weight:bold;}
+
+a.nav_b{ font-size:12px; color:#000000; text-decoration:none;font-weight:normal;}
+.td1 {border-bottom: 1px black solid;border-right: 1px black solid} 	
+.table1 {border-top: 1px black solid;border-left: 1px black solid;width:80%;} 
+.td_strong {border-bottom: 1px black solid;border-right: 1px black solid;font-weight:bold;} 	
+#dynloader {} 
+
+.notice {
+    color: gray;
+}
+
+#auth_info { float: right; }
+
+.comment {
+    color: gray;
+}
+
+.fieldlabel {
+    color: gray;
+    font-weight: bold;
+}
+
+a.commandLink {
+ font-size: 10px;
+}
+
+.formError {
+  color: red;
+  font-weight: bold;
+}
+
+.fieldWithErrors {
+  color: red;
+}
+
+#calendar { float: right; margin-right: 20px;}
+#calendar table { border: none; margin-bottom: 1em; }
+#calendar th,
+#calendar td,
+#calendar a { font-size: x-small; }
+#calendar caption { text-align: center; font-size: small; }
+#calendar td { text-align: right; }
+#calendar .past { color: gray; }
+#calendar a { font-weight: normal; color: #003366; }
+#calendar a.eventlink { font-weight: bold; color: #003366; }
+
+.description { float: right; }
+.teaser { font-size: x-small; color: grey; }

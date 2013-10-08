@@ -1,0 +1,80 @@
+<% @page_title = "Terminübersicht" %>
+
+<div id="calendar">
+
+<% 0.upto(2) do |month_delta| %>
+<% month_start = month_start(@today >> month_delta) %>
+<% month_end = month_end(@today >> month_delta) %>
+<table>
+<caption><%= EventHelper::MONTHS[month_start.month-1] %> <%= month_start.year %></caption>
+<tr>
+<% 1.upto(7) do |wday| %>
+<th><%= EventHelper::SHORT_DAYS[wday] %></th>
+<%end %>
+</tr>
+<tr>
+<% (month_start.cwday - 1).times do %>
+<td></td>
+<% end %>
+<% month_start.upto(month_end) do |date| %>
+    <% if date.cwday == 1 and date.day > 1 %> <tr> <% end %>
+    <% if date < @today %>
+        <td class="past"><%= date.day %></td>
+    <% else %>
+     <% if @event_dates.include?(date) %>
+      <td><%= link_to date.day, { :action => "by_date", :year => date.year, :month => date.month, :day => date.day}, {:class => "eventlink", :title => h(event_cal_title(@event_dates[date])) } %></td>
+     <% else %>
+      <td><%= link_to date.day,  :action => "new", :year => date.year, :month => date.month, :day => date.day %></td>
+     <% end %>
+    <% end %>
+    
+    <% if date.cwday == 7 %> </tr> <% end %>
+<% end %>
+<% if month_end.cwday != 7 %>
+    <% month_end.cwday.upto(7) do %>
+    <td />
+    <% end %>
+    </tr>
+<% end %>
+</table>
+
+<% end %>
+</div>
+
+<div id="content">
+<% unless @events.empty? %>
+<p>Zur Zeit sind folgende Termine eingetragen:</p>
+<ul>
+    <% for event in @events %>
+    <li><%= format_date_short(event.date) %>: <%= link_to h(event.title), :action => "show", :id => event %> (<%= event.participant_count %>)
+<% unless event.description.empty? %>
+<div class="teaser">
+<%=h truncate(event.description, 100) %>
+</div>
+<% end %>
+    </li>
+    <% end %>
+</ul>
+<% else %>
+<p>Zur Zeit sind leider keine neuen Termine eingetragen.</p>
+<% end %>
+
+<h2>Neuer Termin</h2>
+
+<%= form_tag :action => 'new' %>
+
+<p>Einen neuen Termin am
+
+<%= text_field_tag "day", @today.day, :size => 2 %>.
+<%= text_field_tag "month", @today.month, :size => 2 %>.
+<%= text_field_tag "year", @today.year, :size => 4 %> (TT.MM.JJJJ)
+<%= submit_tag "eintragen" %>.
+</p>
+<%= end_form_tag %>
+
+<h2>Turnier-Highscore</h2>
+
+Wer hat auf den meisten Turnieren gespielt?
+<%= link_to 'Zur Highscore Liste', :controller => "stats", :action => "highscore" %>.
+
+</div>

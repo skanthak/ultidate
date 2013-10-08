@@ -1,0 +1,10 @@
+<%= form_remote_tag :update => "event", :url => { :action => "update_event", :id => @event.id } %>
+
+<%= render :partial => "form" %>
+
+<p style="clear:both"><%= submit_tag "Speichern" %>
+<%= link_to_remote "Abbrechen", {:update => "event",
+   :url => { :action => "load_event", :id => @event.id, :template => "display"}}, {"class" => "commandLink"} %>
+</p>
+
+<%= end_form_tag %>

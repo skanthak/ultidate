@@ -1,0 +1,35 @@
+<p style="float: right">
+<%= link_to_remote "Bearbeiten", {:update => "event", 
+    :url => {:action => "load_event", :id => @event.id, :template => "edit" }}, {:class => "commandLink"} %>
+
+<% if @event.destroyable_by?(@session[:user]) %>
+<%= link_to "Diesen Termin löschen", {:action => "destroy", :id => @event.id}, :confirm => "Termin wirklich mit allen Teilnehmer löschen?",
+"class" => "commandLink" %>
+<% end %>
+</p>
+
+<p>
+<span class="fieldlabel">Wann</span>
+<% if @event.duration == 1 %>
+Am <b><%= format_date(@event.date) %></b>
+<% else %>
+Vom <b><%= format_date(@event.date) %> - <%= format_date(@event.end_date) %></b>
+<% end %>
+</p>
+
+<p><span class="fieldlabel">Was</span> <b><%=h @event.title %></b>
+<span class="comment">
+<% if @event.is_public? %>
+(öffentlich sichtbar auf <a href="http://www.arsludendi.de">www.arsludendi.de</a>)
+<% else %>
+(nicht sichtbar auf <a href="http://www.arsludendi.de">www.arsludendi.de</a>)
+<% end %>
+</span>
+</p>
+
+<% unless @event.description.empty? %>
+<p class="fieldlabel"><b>Beschreibung/Hinweise</b></p>
+<%=auto_link(simple_format(h(@event.description))) %>
+<% end %>
+
+

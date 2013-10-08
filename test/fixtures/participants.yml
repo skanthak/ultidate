@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first_participant:
+  id: 1
+  name: "Nummer 1"
+  email: "nummer1@domain.com"
+  event_id: 1
+another_participant:
+  id: 2
+  name: "Nummer 2"
+  email: "nummer2@domain.com"
+  event_id: 1
+yet_another_participant:
+  id: 3
+  name: "Nicht dabei"
+  email: "nummer1@domain.com"
+  event_id: 2

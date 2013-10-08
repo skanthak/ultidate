@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+test_event:
+  id: 1
+  date: 2005-04-15
+  duration: 1
+  title: Training
+  description: Test-Veranstaltung
+  is_public: false
+  
+old_event:
+  id: 2
+  date: 2005-01-01
+  title: Neujahr
+  description: Old news, baby!
+  is_public: true
+
+birthday_event:
+  id: 3
+  date: 2005-06-18
+  title: Happy Birthday
+  is_public: true
+ 
+dinner_event:
+  id: 4
+  date: 2005-06-18
+  title: Concurrent Dinner Event
+  is_public: true
+
+talampaya:
+  id: 5
+  date: 2006-06-02
+  duration: 4
+  title: Talampaya Genf

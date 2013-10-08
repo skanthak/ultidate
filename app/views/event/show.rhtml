@@ -1,0 +1,40 @@
+<% @page_title = "Termindetails" %>
+
+<p><%= link_to "Zur Terminübersicht", :controller => 'event', :action => 'list' %></p>
+
+<div id="event">
+<%= render_partial "display_event" %>
+</div>
+
+<br />
+
+<% if @event.participants.empty? %>
+<p>Bisher gibt es noch keine Teilnehmer.</p>
+<% else %>
+<p>Folgende Personen nehmen bisher teil:</p>
+<ul>
+<% for person in @event.participants %>
+<% htmlid = "participant-#{person.id}" %>
+<li id="<%= htmlid %>">
+<%= render_partial "show_participant", :person => person, :htmlid => htmlid %>
+</li>
+<% end %>
+</ul>
+<% end %>
+
+<hr />
+
+<h2>Teilnehmer hinzufügen</h2>
+<form action="<%= url_for :action => 'add_participant' %>" method="post">
+    <input type="hidden" name="participant[event_id]" value="<%= @event.id %>" />
+    <%= render_partial "participant_form" %>
+    <p><input type="submit" name="submit" value="Als Teilnehmer hinzufügen" /></p>
+</form>
+
+<hr />
+
+<p>
+Dieser Termin hat die E-Mail-Adresse <a href="mailto:<%= @event.email_address %>"><b><%= @event.email_address %></b></a>.
+Eine E-Mail, die an diese Adresse geschickt wird, wird automatisch an alle Teilnehmer dieses Termins weitergeleitet, sofern diese
+eine E-Mail-Adresse angegeben haben.
+</p>
